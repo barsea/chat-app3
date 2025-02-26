@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      binding.pry
       redirect_to root_path
     else
       render :edit, status: :unprocessable_entity
@@ -17,4 +16,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email)
   end
+
 end
